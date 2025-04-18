@@ -12,7 +12,7 @@ O seguinte é possível ao armazenar códigos em um "repositório" no GitHub:
 
 O trabalho colaborativo, uma das características fundamentais do GitHub, é possível graças ao software de código aberto Git, que serviu como base para a criação do GitHub.
 
-### Git Docs[](https://git-scm.com/)
+### [Git Docs](https://git-scm.com/)
 
 O Git é um sistema de controle de versão que acompanha as alterações nos arquivos de forma inteligente. O Git é particularmente útil quando você e um grupo de pessoas fazem alterações nos mesmos arquivos ao mesmo tempo.
 
