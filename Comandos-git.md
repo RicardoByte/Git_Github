@@ -1,105 +1,230 @@
-## *Comandos de preparação do ambiente de trabalho git/gitHub
 
-### Git Config
+# Guia de Comandos Git/GitHub
 
-```
-git config --global init.username <nome> // Configura nome de usuario para o desejado
+## 📋 Configuração do Ambiente Git
 
-git config --global init.useremail <email> // Configura email do usuario para o desejado
+### Configuração Inicial
 
-git config --global init.defaltbranch <nome branch principal> // Configura nome da branch principal para novos repositorios
+```bash
+# Configura nome de usuário globalmente
+git config --global user.name "<nome>"
 
-git branch -m <nome antigo da branch> <nome novo da branch> //  Configura nome da branch principal para o repositorio especificado
-```
+# Configura email do usuário globalmente
+git config --global user.email "<email>"
 
-### Repositórios locais/remotos 
+# Configura nome da branch principal para novos repositórios
+git config --global init.defaultBranch "<nome-da-branch-principal>"
 
-```
-git init // faz com que o diretorio atual seja preparado para virar um repositorio local
+# Renomeia branch atual
+git branch -m <nome-antigo> <nome-novo>
 
-git clone <url do repositorio em nuvem> // faz com que haja a clonagem de um repositorio em nuvem (Ex: GitHub)
-
-git remote add origin <url do repositorio> // linka o repositorio local com um repositorio em nuvem para futuras modificações
-
-git rm -rf .git // faz com que as configurações do git sejam pagadas do diretorio
-
-git status // Mostra alterações que estão pendentes de ser feitas e a branch que elas pertencem
-
-git restore // faz com que um arquivo desejado volte para uma versão anterior voltando todas alterações ja feitas 
-
-git restore . // descartar todas as mudanças não staged
-
+# Criar alias para comandos
+git config --global alias.<apelido> "<comando>"
 ```
 
-### Commits e Alterações
+## 🗂️ Repositórios Locais e Remotos
 
-```
-git commit --ammend -m"mensagem do commit" // Faz a alteração de um commit ja feito
+### Inicialização e Clonagem
 
-git log // Historico de commits já feitos (Autor/data/mensagem do commit)
+```bash
+# Inicializa repositório Git no diretório atual
+git init
 
-git reflog // mostra uma versão mais detalhadas do historico de commits
+# Clona repositório remoto
+git clone <url-do-repositorio>
 
-git add . // faz com que todos arquivos não rastreados no repositorio local sejam reconhecidos
+# Conecta repositório local com remoto
+git remote add origin <url-do-repositorio>
 
-$ git config --global alias.<apelido> <nome do comando> // Faz com que você adcione apelidos aos comandos do git
-
-_______________________________________
-
-git reset <tipo de reset> <hash do commit> // Diferentes usos:
-
--soft faz com que o commit seja desfeito com todos os arquivos ja rastreados
-
---mixed faz com que o commit seja desfeito com todos os arquivos não rastreiados
-
---hard faz com que o commit selecionado seja o unico que sera considerado
-
-git rest tambem pode ser usado para a remoção de um arquivo especifico em um diretorio:
-
-git reset HEAD nomeDiretorio/nomeArquivo
-________________________________________
-
-git push: envia alterações para o repositório remoto.
-
-git push -u origin main // Envia os conteúdos do branch main do repositório local para o repositório remoto chamado origin, e define o main remoto como referência padrão para futuros push e pull.
-
-git pull // pega informações que foram mudadas diretamente pelo repositorio remoto e trazendo elas para o repositorio local
-
------------------------------------------
-
-
+# Remove configurações Git do diretório
+rm -rf .git
 ```
 
+### Status e Restauração
 
+```bash
+# Mostra status das alterações pendentes
+git status
 
-### Trabalhando com Branches 
+# Restaura arquivo específico para versão anterior
+git restore <nome-do-arquivo>
 
-``
-```
-git checkout -b <nome da branch nova> // cria uma nova branch
-
-git checkout <nome da branch desejada> // muda a branch pra que foi selecionada
-
-git branch // mostra o historico de branches 
-
-git branch -m novo-nome // renomeia nome da branch atual
-
-git branch -v <nome da branch desejada> // mostra o historico de branches e o commit mais recente adicionado
-
-git branch -d <nome da branch desejada> // Remove a branch desejada
-
-git merge <nome da branch que sera mesclada> // faz a mesclagem de uma branch em outra (É necessario estar na branch que recebera a outra)
-
-
+# Descarta todas as mudanças não staged
+git restore .
 ```
 
+## 💾 Commits e Alterações
 
-### Cuidados ao fazer commits/alterações e erros comuns/meus erros 
+### Adicionando e Commitando
 
-### 1º Erro: Verificar se esta na pasta/arquivo correta do repositorio
+```bash
+# Adiciona todos os arquivos ao staging
+git add .
 
-Dicas de Prevenção: comandos como: 
+# Adiciona arquivo específico
+git add <nome-do-arquivo>
 
-1 - pwd: faz com que seu caminho no terminal seja mostrado para a verificação.
-2 - cd .git: Se iniciado corretamente o repositorio tera esta pasta escondida se não houver a pasta em questão não tem iniciação git.
+# Realiza commit com mensagem
+git commit -m "mensagem do commit"
 
+# Modifica o último commit
+git commit --amend -m "nova mensagem"
+```
+
+### Histórico e Logs
+
+```bash
+# Mostra histórico de commits
+git log
+
+# Mostra histórico detalhado com referências
+git reflog
+
+# Mostra log em uma linha por commit
+git log --oneline
+```
+
+### Reset e Reversão
+
+```bash
+# Reset soft - mantém arquivos staged
+git reset --soft <hash-do-commit>
+
+# Reset mixed (padrão) - remove do staging
+git reset --mixed <hash-do-commit>
+
+# Reset hard - descarta todas as mudanças
+git reset --hard <hash-do-commit>
+
+# Remove arquivo específico do staging
+git reset HEAD <caminho/arquivo>
+```
+
+## 🌐 Sincronização com Repositório Remoto
+
+### Push e Pull
+
+```bash
+# Envia alterações para repositório remoto
+git push
+
+# Primeira vez enviando branch para remoto
+git push -u origin <nome-da-branch>
+
+# Busca e integra mudanças do repositório remoto
+git pull
+
+# Busca mudanças sem integrar
+git fetch
+```
+
+## 🌿 Trabalhando com Branches
+
+### Criação e Navegação
+
+```bash
+# Cria nova branch
+git branch <nome-da-branch>
+
+# Cria e muda para nova branch
+git checkout -b <nome-da-branch>
+
+# Muda para branch existente
+git checkout <nome-da-branch>
+
+# Muda para branch (comando mais novo)
+git switch <nome-da-branch>
+```
+
+### Gerenciamento de Branches
+
+```bash
+# Lista todas as branches
+git branch
+
+# Lista branches com último commit
+git branch -v
+
+# Renomeia branch atual
+git branch -m <novo-nome>
+
+# Deleta branch local
+git branch -d <nome-da-branch>
+
+# Força deleção de branch
+git branch -D <nome-da-branch>
+```
+
+### Merge e Integração
+
+```bash
+# Faz merge de uma branch na atual
+git merge <nome-da-branch-origem>
+
+# Merge sem fast-forward (cria commit de merge)
+git merge --no-ff <nome-da-branch>
+```
+
+## ⚠️ Cuidados e Boas Práticas
+
+### Verificações Importantes
+
+#### 1. Verificar Diretório Correto
+
+```bash
+# Mostra caminho atual
+pwd
+
+# Verifica se existe pasta .git (repositório inicializado)
+ls -la | grep .git
+
+# Ou navega para pasta .git
+cd .git
+```
+
+#### 2. Antes de Fazer Commits
+
+- ✅ Verificar se está na branch correta: `git branch`
+- ✅ Conferir status das mudanças: `git status`
+- ✅ Revisar arquivos que serão commitados: `git diff --staged`
+- ✅ Usar mensagens de commit descritivas
+
+#### 3. Erros Comuns a Evitar
+
+- ❌ Fazer commit na branch errada
+- ❌ Não verificar o diretório atual
+- ❌ Fazer push sem pull (em trabalho colaborativo)
+- ❌ Usar `git reset --hard` sem backup
+- ❌ Commitar arquivos sensíveis (senhas, tokens)
+
+### Comandos Úteis de Verificação
+
+```bash
+# Verifica configurações atuais
+git config --list
+
+# Verifica repositórios remotos
+git remote -v
+
+# Verifica diferenças não commitadas
+git diff
+
+# Verifica diferenças staged
+git diff --staged
+```
+
+## 📁 Arquivo .gitignore
+
+```gitignore
+# Exemplos de arquivos/pastas a ignorar
+node_modules/
+.env
+*.log
+.DS_Store
+dist/
+build/
+```
+
+---
+
+> **Dica:** Use `git help <comando>` para obter ajuda detalhada sobre qualquer comando Git.

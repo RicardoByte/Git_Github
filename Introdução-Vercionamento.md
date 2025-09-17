@@ -36,27 +36,23 @@ Arquivos binários, como recursos gráficos e arquivos de texto, exigem uma gran
 
 ### Oferece visibilidade total[](https://about.gitlab.com/pt-br/topics/version-control/what-is-centralized-version-control-system/#oferece-visibilidade-total)
 
-Com uma localização centralizada, todos os membros da equipe têm visibilidade total sobre em que código estão trabalhando atualmente e quais alterações foram feitas. Esse conhecimento ajuda as equipes de desenvolvimento de software a entender o estado de um projeto e oferece uma base para a colaboração, já que os desenvolvedores compartilham o trabalho no servidor central. Um sistema de controle de versão centralizado tem apenas dois repositórios de dados que os usuários precisam monitorar: a cópia local e o servidor central.
+Com uma localização centralizada, todos os membros da equipe têm visibilidade total sobre em que código estão trabalhando atualmente e quais alterações foram feitas. Um sistema de controle de versão centralizado tem apenas dois repositórios de dados que os usuários precisam monitorar: a cópia local e o servidor central.
 
 ### Diminui a curva de aprendizado[](https://about.gitlab.com/pt-br/topics/version-control/what-is-centralized-version-control-system/#diminui-a-curva-de-aprendizado)
 
-O controle de versão centralizado é fácil de entender e usar, então desenvolvedores de qualquer nível de habilidade podem enviar mudanças e começar a contribuir para a base de código rapidamente. A configuração do sistema e do fluxo de trabalho também é simples e não exige um investimento significativo de tempo para estabelecer como a equipe de desenvolvimento de software deve usar a ferramenta.
+O controle de versão centralizado é fácil de entender e usar, então desenvolvedores de qualquer nível de habilidade podem enviar mudanças e começar a contribuir para a base de código rapidamente.
 
 
 # Desvantagens
 
 ### Um único ponto de falha coloca os dados em risco[](https://about.gitlab.com/pt-br/topics/version-control/what-is-centralized-version-control-system/#um-nico-ponto-de-falha-coloca-os-dados-em-risco)
 
-A maior desvantagem é o ponto único de falha presente no [servidor centralizado](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control). Se o servidor remoto ficar indisponível, ninguém poderá trabalhar no código ou enviar alterações. A falta de acesso offline significa que qualquer interrupção pode prejudicar significativamente o desenvolvimento do código e até resultar na perda dele. Todo o projeto e a equipe são interrompidos durante uma falha. Em caso de corrupção do disco rígido, as equipes de desenvolvimento de software devem confiar nos backups para recuperar o histórico de execução de um projeto. Se os backups não forem mantidos corretamente, a equipe perderá tudo. Ao armazenar todas as versões em um servidor central, as equipes correm o risco de perder seu código-fonte a qualquer momento. Apenas os instantâneos nas máquinas locais podem ser recuperados, mas isso representa uma pequena quantidade de código em comparação com todo o histórico de um projeto.
-
+A maior desvantagem é o ponto único de falha presente no [servidor centralizado](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control). Se o servidor remoto ficar indisponível, ninguém poderá trabalhar no código ou enviar alterações. A falta de acesso offline significa que qualquer interrupção pode prejudicar significativamente o desenvolvimento do código e até resultar na perda dele. Todo o projeto e a equipe são interrompidos durante uma falha. 
 ### A velocidade lenta atrasa o desenvolvimento[](https://about.gitlab.com/pt-br/topics/version-control/what-is-centralized-version-control-system/#a-velocidade-lenta-atrasa-o-desenvolvimento)
-
-Não é incomum que usuários do sistema de controle de versão centralizado tenham dificuldades em fazer branching rapidamente, pois os usuários devem se comunicar com o servidor remoto para cada comando, o que retarda o desenvolvimento do código.
 
 A criação de branches se torna uma tarefa demorada que possibilita o surgimento de conflitos de merge, pois os desenvolvedores não conseguem enviar suas alterações para o repositório central rápido o suficiente para que outras pessoas possam consultá-las. Se os membros da equipe tiverem uma conexão de rede lenta, o processo de desenvolvimento de código se tornará ainda mais demorado ao tentarem se conectar com o servidor remoto.
 
 ### Poucos momentos estáveis para enviar alterações por push[](https://about.gitlab.com/pt-br/topics/version-control/what-is-centralized-version-control-system/#poucos-momentos-estveis-para-enviar-alteraes-por-push)
 
-Um fluxo de trabalho centralizado pode ser ótimo para equipes pequenas, mas apresenta limitações quando equipes maiores tentam colaborar. Quando vários desenvolvedores querem trabalhar no mesmo trecho de código, fica difícil encontrar um momento estável para enviar por push as alterações. As alterações instáveis não podem ser enviadas por push para o repositório central principal; portanto, os desenvolvedores precisam mantê-las em seus ambientes locais até que estejam prontas para serem lançadas.
+Um fluxo de trabalho centralizado pode ser ótimo para equipes pequenas, mas apresenta limitações quando equipes maiores tentam colaborar. Quando vários desenvolvedores querem trabalhar no mesmo trecho de código, fica difícil encontrar um momento estável para enviar por push as alterações. 
 
-Como os usuários atrasam o envio de alterações por push, os projetos de desenvolvimento de software podem atrasar. Além disso, podem surgir conflitos de merge, pois o resto da equipe não tem visibilidade das alterações que existem apenas na máquina de um usuário. Depois que as alterações forem enviadas por push para o repositório central, após os problemas de estabilidade e velocidade serem solucionados, os usuários terão que resolver conflitos rapidamente ao fazer o merge para garantir que o resto da equipe possa contribuir com o código. A falta de estabilidade é o que leva muitas equipes a [migrar para um sistema de controle de versão diferente](https://about.gitlab.com/blog/2020/11/12/migrating-your-version-control-to-git/), como o Git.

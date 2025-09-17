@@ -1,6 +1,7 @@
-## Sobre o Git e GitHub 
-### [GitHub Docs](https://docs.github.com/pt/get-started/start-your-journey/about-github-and-git#sobre-o-github)
- 
+___
+## Sobre o Git e GitHub
+---
+### GitHub Docs
 O GitHub é uma plataforma baseada em nuvem em que é possível armazenar, compartilhar e trabalhar com outras pessoas para escrever códigos.
 
 O seguinte é possível ao armazenar códigos em um "repositório" no GitHub:
@@ -10,10 +11,7 @@ O seguinte é possível ao armazenar códigos em um "repositório" no GitHub:
 - Permita que outras pessoas **revisem** o seu código e deem sugestões para melhorá-lo.
 - **Colabore** em um projeto compartilhado sem se preocupar que suas alterações afetarão o trabalho de seus colaboradores antes que você esteja pronto para integrá-los.
 
-O trabalho colaborativo, uma das características fundamentais do GitHub, é possível graças ao software de código aberto Git, que serviu como base para a criação do GitHub.
-
-### [Git Docs](https://git-scm.com/)
-
+### Git Docs
 O Git é um sistema de controle de versão que acompanha as alterações nos arquivos de forma inteligente. O Git é particularmente útil quando você e um grupo de pessoas fazem alterações nos mesmos arquivos ao mesmo tempo.
 
 Normalmente, para fazer isso em um fluxo de trabalho baseado no Git, você deve:
